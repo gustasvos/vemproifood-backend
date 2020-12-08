@@ -1,4 +1,4 @@
-const asyncApiCall = require('../bussiness/weather')
+// const asyncApiCall = require('../bussiness/weather')
 const weather = require('../bussiness/weather')
 
 exports.funcao = async() => {
