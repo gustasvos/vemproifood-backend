@@ -1,10 +1,18 @@
 const express = require('express')
 const app = express()
-const teste = require('../handler/handler')
- 
-app.get('/teste', async(req, res) => {
-    let a = teste.funcao()
-    res.send(a)
+const recebeTemp = require('../handler/handler')
+const bodyParser = require('body-parser');
+
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+app.post('/teste', async(request, response, next) => {
+    const { cidade } = request.body
+    // console.log(cidade)
+    let a = await recebeTemp.calcular(cidade)
+    response.send(a)
 })
  
 app.listen(3000)
+
