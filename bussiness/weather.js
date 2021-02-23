@@ -7,9 +7,8 @@ async function getCity(element, index, array) {
     const res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${element}&appid=${config.token}`)
     let temperatura = res.data.main.temp - 273.15
     // resultado.push(temperatura)
-    return temperatura
+    return temperatura[element]
 }
-
 
 exports.Callapi = async (cidades) => {
     try {
